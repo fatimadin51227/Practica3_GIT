@@ -10,7 +10,6 @@ public class Ejercio4 {
     static LocalDate fecha_de_hoy = LocalDate.now();
     static int saldo_inicial;
 
-    public static void main(String[] args) {
         String cuentas;
         String nombre = JOptionPane.showInputDialog(null, "Ingrese el nombre");
 
@@ -30,10 +29,23 @@ public class Ejercio4 {
 
             JOptionPane.showMessageDialog((Component)null, "Saldo actualizado de la cuenta "+ numero_cuenta+" del cliente " +nombre +" el dia " + fecha_de_hoy + " es de "+ saldo_inicial);
 
-
             cuentas=JOptionPane.showInputDialog("Tienes mas cuentas?");
             cuentas.toLowerCase();
 
-
         }while(!cuentas.equalsIgnoreCase("no"));
     }
+
+        public static void Reintegro() {
+            String reintegros = JOptionPane.showInputDialog(null, "Ingrese de cuánto a sido el reintegro");
+            int reintegro = Integer.parseInt(reintegros);
+            if (reintegro > saldo_inicial) {
+                JOptionPane.showMessageDialog(null, "Error: saldo insuficiente");
+            } else {
+                saldo_inicial = saldo_inicial - reintegro;
+            }
+            String fecha_reintegro = JOptionPane.showInputDialog("Ingrese que dia a sido la imposicion(dd/mm/yyyy)");
+            LocalDate fecha_rei = LocalDate.parse(fecha_reintegro, dtf);
+            JOptionPane.showMessageDialog(null, reintegro + " imposicion "+ fecha_rei);
+            saldo_inicial = saldo_inicial - reintegro;
+        }
+}
