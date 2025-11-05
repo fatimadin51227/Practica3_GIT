@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -48,4 +47,29 @@ public class Ejercio4 {
             JOptionPane.showMessageDialog(null, reintegro + " imposicion "+ fecha_rei);
             saldo_inicial = saldo_inicial - reintegro;
         }
+public static void movimientos(){
+        String movimientos;
+        do{
+            movimientos = JOptionPane.showInputDialog(null, "Que tipo de movimiento a hecho?(Introduzca el numero) \n " +
+                    "0. Ninguno\n" +
+                    "1. Imposicion\n" +
+                    "2. Reintegro");
+            switch(movimientos){
+                case "0":
+                    JOptionPane.showMessageDialog(null, "0");
+                    break;
+                case "1":
+                    Imposicion();
+                    break;
+                case "2":
+                    Reintegro();
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Opción no válida");
+            }
+
+        }while(!movimientos.equalsIgnoreCase("0"));
+    }
+
 }
+
