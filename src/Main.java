@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -11,5 +13,29 @@ public class Main {
             // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
             System.out.println("i = " + i);
         }
+    }
+
+    public static void movimientos(){
+        String movimientos;
+        do{
+            movimientos = JOptionPane.showInputDialog(null, "Que tipo de movimiento a hecho?(Introduzca el numero) \n " +
+                    "0. Ninguno\n" +
+                    "1. Imposicion\n" +
+                    "2. Reintegro");
+            switch(movimientos){
+                case "0":
+                    JOptionPane.showMessageDialog(null, "0");
+                    break;
+                case "1":
+                    Imposicion();
+                    break;
+                case "2":
+                    Reintegro();
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Opción no válida");
+            }
+
+        }while(!movimientos.equalsIgnoreCase("0"));
     }
 }
